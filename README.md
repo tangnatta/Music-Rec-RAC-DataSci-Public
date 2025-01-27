@@ -10,3 +10,4 @@ Set-ExecutionPolicy Unrestricted -Scope Process
 ```
 
 ## Introduction
+Singing activities are becoming popular these days and many people sometimes reach the point that they don't know what to sing or don't know which songs are suitable for them. So the objective of this project is to make a recommendation system that can suggest songs that are suitable for the user's voice while also providing explaination to make them understand how to improve.
