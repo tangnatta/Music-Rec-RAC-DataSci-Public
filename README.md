@@ -23,3 +23,13 @@ In the song database creation part, we gathered around 100 songs in Thai, Englis
 
 In the recommendation part, we created an algorithm to find the similarity between user's singing data and songs in the database by converting the user's data to notes in each 10ms interval and using physics theory of music to calculate the singing score of each note. Then we used modified K-Nearest Neighbor, finding the Euclidean distance of the binary notes and weighting with the occurrences, to get the similarity score and rank them if the song is suitable for the user's singing voice.
 
+We also designed a recommendation page showing the score of each note that the user can sing. The insight of each song is also available containing the number of notes in the song.
+
+## Results
+The system was tested by our friends and here's the results on the satisfaction of the recommendation and and the understanding of the explaination.
+
+| Evaluation Criteria | Score |
+| ------------------- | ----- |
+| Satisfaction | 8.75 |
+| Understanding | 7.05 |
+
