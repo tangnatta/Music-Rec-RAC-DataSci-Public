@@ -1,0 +1,156 @@
+{% extends "base.html" %} 
+{% load static %}
+{% load math %}
+
+{% block title %} Dashboard {% endblock %}
+{% block content %} 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9">
+            <!-- <div class="iq-card">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="iq-card-body col-4 w-100">
+                        <a href="2karaoke.html">
+                            <button type="button"
+                                class="btn dark-icon btn-primary btn-block">Karaoke</button>
+                        </a>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="iq-card-body col-4 w-100">
+                        <a href="2rec.html">
+                            <button type="button"
+                                class="btn dark-icon btn-primary btn-block">Recommendation</button>
+                        </a>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div> -->
+            <div class="iq-card">
+                <div class="iq-card-header d-flex justify-content-between">
+                    <div class="iq-header-title">
+                        <h4 class="card-title">Piano Visualization</h4>
+                    </div>
+                </div>
+                <div class="iq-card-body">
+                    <p class="card-text">This visual representation represents the performance of your vocal
+                        skills on the piano like visualization, where green signifies doing well notes
+                        exceeding a score of 0.85, yellow signifies notes within the range of 0.7 to 0.85,
+                        and red signifies notes requiring improvement, scoring below 0.7.</p>
+                    <img src={% static "images/PianoVis-colored-note.png" %} class="img-fluid" alt="Responsive image">
+                </div>
+            </div>
+            <div class="iq-card">
+                <div class="iq-card-header d-flex justify-content-between">
+                    <div class="iq-header-title">
+                        <h4 class="card-title">User Insight Table</h4>
+                    </div>
+                </div>
+                <div class="iq-card-body">
+                    <p class="card-text">This table representation represents the performance of your vocal
+                        skills, where green signifies doing well notes exceeding a score of 0.85, yellow
+                        signifies notes within the range of 0.7 to 0.85, and red signifies notes requiring
+                        improvement, scoring below 0.7.</p>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    {% for txt in table_head %}
+                                        <th scope="col" class="text-center">{{txt}}</th>
+                                    {% endfor %}
+                                    <!-- <th scope="col" class="text-right">Amount</th>
+                                                        <th scope="col" class="text-center">Status</th>
+                                                        <th scope="col">Action</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">
+                                        <div class="user-img img-fluid">
+                                            <img src={% static "images/user/1.jpg" %} alt="story-img"
+                                                class="img-fluid rounded-circle avatar-40">
+                                        </div>
+                                        User's
+                                    </td>
+                                    {% for num in table_content %}
+                                        <td>{{num}}
+                                            <div class="iq-progress-bar">
+                                                <span 
+                                                    class=
+                                                        {% if num > 0.85 %}
+                                                            "bg-success"
+                                                        {% elif num > 0.7 %}
+                                                            "bg-warning"
+                                                        {% else %}
+                                                            "bg-secondary"
+                                                        {% endif %}
+                                                    data-percent={{num|time:100}}
+                                                    style="transition: width 2s ease 0s; width: 0%;"></span>
+                                            </div>
+                                        </td>
+                                    {% endfor %}
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                <div class="iq-card-header d-flex justify-content-between border-bottom">
+                    <div class="iq-header-title">
+                        <h4 class="card-title">History</h4>
+                    </div>
+                </div>
+                <div class="iq-card-body">
+                    <ul class="iq-timeline">
+                        <li>
+                            <div class="timeline-dots"></div>
+                            <h6 class="float-left mb-1">Oct 30, 2023</h6>
+                            <div class="d-inline-block w-100">
+                                <p class="mb-0">Created accounts</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-dots"></div>
+                            <h6 class="float-left mb-1">Nov 2, 2023</h6>
+                            <div class="d-inline-block w-100">
+                                <p class="mb-0">Sang Some one to you</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-dots"></div>
+                            <h6 class="float-left mb-1">Nov 16, 2023</h6>
+                            <div class="d-inline-block w-100">
+                                <p class="mb-0">Sang Never Gonna Give You Up</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-dots"></div>
+                            <h6 class="float-left mb-1">Nov 31, 2023</h6>
+                            <div class="d-inline-block w-100">
+                                <p class="mb-0">Sang Bleach Harukaze</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-dots"></div>
+                            <h6 class="float-left mb-1">Dec 17, 2023</h6>
+                            <div class="d-inline-block w-100">
+                                <p class="mb-0">Sang Haru Uta Ikimonogakari</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-dots"></div>
+                            <h6 class="float-left mb-1">Dec 25, 2023</h6>
+                            <div class="d-inline-block w-100">
+                                <p class="mb-0">Sang ดาวหางฮัลเลย์</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

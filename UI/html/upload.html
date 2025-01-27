@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Vito - Responsive Bootstrap 4 Admin Dashboard Template</title>
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="images/favicon.ico" />
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- Typography CSS -->
+      <link rel="stylesheet" href="css/typography.css">
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive CSS -->
+      <link rel="stylesheet" href="css/responsive.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+      <script src="js/main/upload.js"></script>
+
+   </head>
+   <body>
+      <!-- loader Start -->
+      <div id="loading">
+         <div id="loading-center">
+         </div>
+      </div>
+      <!-- loader END -->
+      <!-- Wrapper Start -->
+      <div class="wrapper">
+         <!-- Sidebar  -->
+         <div class="iq-sidebar">
+            <div class="iq-sidebar-logo d-flex justify-content-between">
+               <a href="index.html">
+               <div class="iq-light-logo">
+                  <!-- <img src="images/logo.gif" class="img-fluid" alt=""> -->
+               </div>
+               <div class="iq-dark-logo">
+                  <img src="images/logo-dark.gif" class="img-fluid" alt="">
+               </div>
+               <!-- <span>thai concept frame</span> -->
+               </a>
+               <!-- <div class="iq-menu-bt-sidebar">
+                  <div class="iq-menu-bt align-self-center">
+                     <div class="wrapper-menu">
+                        <div class="main-circle"><i class="ri-arrow-left-s-line"></i></div>
+                        <div class="hover-circle"><i class="ri-arrow-right-s-line"></i></div>
+                     </div>
+                  </div>
+               </div> -->
+            </div>
+            <div id="sidebar-scrollbar">
+               <nav class="iq-sidebar-menu">
+                  <ul id="iq-sidebar-toggle" class="iq-menu">
+                     <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>ส่วนประกอบเว็บไซต์</span></li>
+                     
+                     <li>
+                        <a href="dashboard-1.html" class="iq-waves-effect"><i class="ri-home-3-line"></i><span>ดัชนีกรอบมโนทัศน์</span></a>
+                     </li>
+                     <li >
+                        <a href="dashboard-2.html" class="iq-waves-effect"><i class="ri-home-8-line"></i><span>ดัชนีคำศัพท์</span></a>
+                     </li>
+                     <li>
+                        <a href="dashboard-3.html" class="iq-waves-effect"><i class="ri-home-7-line"></i><span>Label Semantic Role</span></a>
+                     </li>
+                     <li class="active">
+                        <a href="dashboard-3.html" class="iq-waves-effect"><i class="ri-home-7-line"></i><span>Article Upload</span></a>
+                     </li>
+                     
+                  </ul>
+               </nav>
+               <div class="p-3"></div>
+            </div>
+         </div>
+         <!-- TOP Nav Bar -->
+         <div class="iq-top-navbar">
+            <div class="iq-navbar-custom">
+               <div class="iq-sidebar-logo">
+                  <div class="top-logo">
+                     <a href="index.html" class="logo">
+                     <div class="iq-light-logo">
+                  <img src="images/logo.gif" class="img-fluid" alt="">
+               </div>
+               <div class="iq-dark-logo">
+                  <img src="images/logo-dark.gif" class="img-fluid" alt="">
+               </div>
+                     <span>vito</span>
+                     </a>
+                  </div>
+               </div>
+               <nav class="navbar navbar-expand-lg p-1">
+                  
+                  
+                  
+                  <ul class="">
+                     <li>
+                        <a  class="">
+                            <h1>กรอบมโนทัศน์ภาษาไทย : Thai Concept Frame</h1>
+                        </a>
+                        
+                     </li>
+                  </ul>
+               </nav>
+            </div>
+         </div>
+         <!-- TOP Nav Bar END -->
+         <!-- Page Content  -->
+         
+      <div id="content-page" class="content-page">
+        <div class="container-fluid">
+           <div class="row">
+              <div class="col-sm-12">
+                    <div class="iq-card">
+                       <div class="iq-card-header d-flex justify-content-between">
+                          <div class="iq-header-title">
+                             <h4 class="card-title">Choose Article</h4>
+                          </div>
+                       </div>
+                       <div class="iq-card-body">
+                          
+                             <div class="row justify-content-between">
+                                <div class="col-sm-12 col-md-6">
+                                   <!-- <input type="file" id="file-input" /> -->
+                           
+                                      <form><div class="form-group">
+                                        <div class="custom-file">
+                                           <input type="file" id="file-input" />
+                                        </div>
+                                     </div>
+                                     <button type="submit" class="btn btn-primary">Submit</button>
+                                     <button type="submit" class="btn iq-bg-danger">cancle</button>
+                                  </form>
+
+                                 
+                                </div>
+                                
+                             </div>
+                             
+                         
+                             
+                       </div>
+                    </div>
+              </div>
+           </div>
+           <div class="row">
+            <div class="col-sm-12">
+                  <div class="iq-card">
+                     <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                           <h4 class="card-title">Your Article</h4>
+                        </div>
+                     </div>
+                     <div class="iq-card-body">
+                        
+                             
+                                 
+                                     <p id="file-content"></p>
+                                
+                               
+                      
+                              
+                           
+                       
+                           
+                     </div>
+                     <div class="iq-card-body">
+                        
+                             
+                                 
+                                    
+                           <pre ></pre>
+                                
+                               
+                      
+                          <script type="text/javascript">
+         
+         function readSingleFile(e) {
+  var file = e.target.files[0];
+  if (!file) {
+    return;
+  }
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var contents = e.target.result;
+    displayContents(contents);
+  };
+  reader.readAsText(file);
+}
+
+function displayContents(contents) {
+  var element = document.getElementById('file-content');
+  element.textContent = contents;
+}
+
+var el = document.getElementById('file-input')
+if(el){
+   el.addEventListener('change', readSingleFile, false);
+}
+  
+      </script>          
+                           
+                       
+                           
+                     </div>
+                  </div>
+            </div>
+         </div>
+        </div>
+     </div>
+      <!-- Wrapper END -->
+      <!-- Footer -->
+      <!-- <footer class="iq-footer">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-6">
+                  <ul class="list-inline mb-0">
+                     <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                     <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
+                  </ul>
+               </div>
+               <div class="col-lg-6 text-right">
+                  Copyright 2020 <a href="#">Vito</a> All Rights Reserved.
+               </div>
+            </div>
+         </div>
+      </footer> -->
+      <!-- <nav class="iq-float-menu">
+         <input type="checkbox" href="#" class="iq-float-menu-open" name="menu-open" id="menu-open" />
+         <label class="iq-float-menu-open-button" for="menu-open">
+            <span class="lines line-1"></span>
+            <span class="lines line-2"></span>
+            <span class="lines line-3"></span>
+         </label>
+         <button class="iq-float-menu-item bg-info"  data-toggle="tooltip" data-placement="top" title="Direction Mode" data-mode="rtl"><i class="ri-text-direction-r"></i></button>
+         <button class="iq-float-menu-item bg-danger"  data-toggle="tooltip" data-placement="top" title="Color Mode" id="dark-mode" data-active="true"><i class="ri-sun-line"></i></button>
+         <button class="iq-float-menu-item bg-warning" data-toggle="tooltip" data-placement="top" title="Comming Soon"><i class="ri-palette-line"></i></button> 
+      </nav> -->
+      <!-- Footer END -->
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="js/jquery.min.js"></script>
+       <!-- Rtl and Darkmode -->
+       <script src="js/rtl.js"></script>
+       <script src="js/customizer.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <!-- Appear JavaScript -->
+      <script src="js/jquery.appear.js"></script>
+      <!-- Countdown JavaScript -->
+      <script src="js/countdown.min.js"></script>
+      <!-- Counterup JavaScript -->
+      <script src="js/waypoints.min.js"></script>
+      <script src="js/jquery.counterup.min.js"></script>
+      <!-- Wow JavaScript -->
+      <script src="js/wow.min.js"></script>
+      <!-- Apexcharts JavaScript -->
+      <script src="js/apexcharts.js"></script>
+      <!-- Slick JavaScript -->
+      <script src="js/slick.min.js"></script>
+      <!-- Select2 JavaScript -->
+      <script src="js/select2.min.js"></script>
+      <!-- Owl Carousel JavaScript -->
+      <script src="js/owl.carousel.min.js"></script>
+      <!-- Magnific Popup JavaScript -->
+      <script src="js/jquery.magnific-popup.min.js"></script>
+      <!-- Smooth Scrollbar JavaScript -->
+      <script src="js/smooth-scrollbar.js"></script>
+      <!-- lottie JavaScript -->
+      <script src="js/lottie.js"></script>
+      <!-- am core JavaScript -->
+      <script src="js/core.js"></script>
+      <!-- am charts JavaScript -->
+      <script src="js/charts.js"></script>
+      <!-- am animated JavaScript -->
+      <script src="js/animated.js"></script>
+      <!-- am kelly JavaScript -->
+      <script src="js/kelly.js"></script>
+      <!-- Flatpicker Js -->
+      <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+      <!-- Chart Custom JavaScript -->
+      <script src="js/chart-custom.js"></script>
+      <!-- Custom JavaScript -->
+      <script src="js/custom.js"></script>
+   </body>
+</html>

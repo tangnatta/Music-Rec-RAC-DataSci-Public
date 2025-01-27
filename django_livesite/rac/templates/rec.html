@@ -1,0 +1,150 @@
+{% extends "base.html" %} 
+
+{% block title %} Recommendation {% endblock %} 
+
+{% block content %}
+<div class="container-fluid">
+        <div class="iq-card w-100">
+            <div class="iq-card-header d-flex justify-content-between">
+                <div class="iq-header-title">
+                    <h4 class="card-title">Performance-based Recommendation</h4>
+                </div>
+            </div>
+            <div class="iq-card-body">
+                <p class="card-text">Discover your vocal sweet spot with this Performance-based Recommendation's
+                    10 song recommendations, tailored to your unique voice. </p>
+                <!-- <form data-form-type="recommendation">
+                        <div class="form-group">
+                                <div class="custom-control custom-checkbox checkbox-icon custom-control-inline">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck-Thai" checked="">
+                                    <label class="custom-control-label" for="customCheck-Thai">
+                                        <i>🇹🇭</i>
+                                        Thai
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-icon custom-control-inline">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck-English" checked="">
+                                    <label class="custom-control-label" for="customCheck-English">
+                                        <i>🇬🇧</i>
+                                        English
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-icon custom-control-inline">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck-Japanese" checked="">
+                                    <label class="custom-control-label" for="customCheck-Japanese">
+                                        <i>🇯🇵</i>
+                                        Japanese
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary" data-form-type="recommendation"
+                                    data-kwimpalastatus="dead">Recommend</button>
+                        </div>
+                    </form> -->
+                <form data-form-type="recommendation" action="../rec-res/" method="post">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="text-dark">Prefer Language: </label>
+                        <div
+                            class="custom-control custom-checkbox custom-checkbox-color-check custom-control-inline">
+                            <input type="checkbox" class="custom-control-input bg-primary" id="customCheck-Thai"
+                                name="thai-check" checked="true" value="true">
+                            <label class="custom-control-label" for="customCheck-Thai">Thai</label>
+                        </div>
+                        <div
+                            class="custom-control custom-checkbox custom-checkbox-color-check custom-control-inline">
+                            <input type="checkbox" class="custom-control-input bg-primary"
+                                name="english-check" id="customCheck-English" checked="true" value="true">
+                            <label class="custom-control-label" for="customCheck-English">English</label>
+                        </div>
+                        <div
+                            class="custom-control custom-checkbox custom-checkbox-color-check custom-control-inline">
+                            <input type="checkbox" class="custom-control-input bg-primary"
+                                name="japanese-check" id="customCheck-Japanese" checked="true" value="true">
+                            <label class="custom-control-label" for="customCheck-Japanese">Japanese</label>
+                        </div>
+                        <!-- <p class="text-dark"></p> -->
+                        <button type="submit" class="btn btn-primary" data-form-type="recommendation"
+                            data-kwimpalastatus="dead">Recommend Me</button>
+                    </div>
+                </form>
+                <script>
+                  var thai_check = document.querySelector("input[name=thai-check]");
+                  var english_check = document.querySelector("input[name=english-check]");
+                  var japanese_check = document.querySelector("input[name=japanese-check]");
+
+                  thai_check.addEventListener('change', function() {
+                    thai_check.value = this.checked;
+                    /*if (this.checked) {
+                      thai_check.value = 1
+                    } else {
+                      thai_check.value = 0
+                    }*/
+                    /*if (this.checked) {
+                      console.log("thai_check is checked..");
+                    } else {
+                      console.log("thai_check is not checked..");
+                    }*/
+                  });
+
+                  english_check.addEventListener('change', function() {
+                    english_check.value = this.checked;
+                    /*if (this.checked) {
+                      english_check.value = 1
+                    } else {
+                      english_check.value = 0
+                    }*/
+                    /*if (this.checked) {
+                      console.log("english_check is checked..");
+                    } else {
+                      console.log("english_check is not checked..");
+                    }*/
+                  });
+
+                  japanese_check.addEventListener('change', function() {
+                    japanese_check.value = this.checked;
+                    /*if (this.checked) {
+                      japanese_check.value = 1
+                    } else {
+                      japanese_check.value = 0
+                    }*/
+                    /*if (this.checked) {
+                      console.log("japanese_check is checked..");
+                    } else {
+                      console.log("japanese_check is not checked..");
+                    }*/
+                  });
+                </script>
+            </div>
+        </div>
+        <div class="iq-card w-100">
+            <div class="iq-card-header d-flex justify-content-between">
+                <div class="iq-header-title">
+                    <h4 class="card-title">System Feedback</h4>
+                </div>
+            </div>
+            <div class="iq-card-body">
+                <p class="card-text">Find your perfect singing match! We'll show you how your voice fits your
+                    selected songs and even let you tweak your vocal score for the best possible performance
+                    with an explainable system.</p>
+                <form data-form-type="recommendation" action="../table-res/" method=post>
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label class="text-dark">Song Name: </label>
+                        <select multiple="multiple" name="select_music" class="form-control" id="exampleFormControlSelect2"
+                            data-ddg-inputtype="unknown">
+                            <option value="ดางหางฮัลเลย์">ดางหางฮัลเลย์</option>
+                            {% for song in song_name_lst %}
+                            <option value={{song}}>{{ song }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" data-form-type="recommendation"
+                            data-kwimpalastatus="dead">Get Feedback</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

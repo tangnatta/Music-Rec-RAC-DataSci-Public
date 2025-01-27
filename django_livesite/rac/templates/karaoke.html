@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %} Karaoke {% endblock %} 
+{% block content %}
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="iq-card">
+        <div class="iq-card-header">
+          <h5 class="text-center">Lyrics - Never Gonna Give You Up</h5>
+        </div>
+        <div class="iq-card-body">
+          <p class="text-black text-center">We're no strangers to love</p>
+          {% if state == "started" %}
+          <h5 class="text-primary text-center">
+            <strong>You know the rules and so do I (do I)</strong>
+          </h5>
+          <p></p>
+          {% else %}
+          <p class="text-black text-center">
+            You know the rules and so do I (do I)
+          </p>
+          {% endif %}
+          <p class="text-black text-center">
+            A full commitment's what I'm thinking of
+          </p>
+          <p class="text-black text-center">
+            You wouldn't get this from any other guy
+          </p>
+          <p class="text-black text-center">
+            I just wanna tell you how I'm feeling
+          </p>
+          <p class="text-black text-center">Gotta make you understand</p>
+          <!-- <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> -->
+        </div>
+      </div>
+      <div class="iq-card">
+        <div class="iq-card-body">
+          {% if state == "started" %}
+          <h5 class="text-primary text-center">0:17</h5>
+          <p></p>
+          <div class="row justify-content-center">
+            <a href="../karaoke">
+              <!-- <button type="button" class="btn dark-icon btn-primary mb-3"><i class="fa fa-play"></i>Start</button> -->
+              <button type="button" class="btn dark-icon btn-primary mb-3">
+                <i class="fa fa-pause"></i>Stop
+              </button>
+            </a>
+          </div>
+          {% else %}
+          <h5 class="text-primary text-center">0:00</h5>
+          <p></p>
+          <div class="row justify-content-center">
+            <a href="../karaoke-start">
+              <button type="button" class="btn dark-icon btn-primary mb-3">
+                <i class="fa fa-play"></i>Start
+              </button>
+            </a>
+            <!-- <button type="button" class="btn dark-icon btn-primary mb-3"><i class="fa fa-pause"></i>Stop</button> -->
+          </div>
+          {% endif %}
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="formFile" class="form-label"
+                >Upload Your Voice Here (After click submit pls. wait and the result will appear in approx. 15 sec.)</label
+              >
+              {{form}}
+            </div>
+            <button type="submit" class="btn btn-outline-primary">
+              Submit
+            </button>
+          </form>
+          <!-- TODO: Combine in to one button-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

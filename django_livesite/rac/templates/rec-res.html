@@ -1,0 +1,344 @@
+{% extends "base.html" %} 
+
+{% load static %}
+{% load math %}
+
+{% block title %} Recommendation {% endblock %} 
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="iq-card col-12">
+            <form action="../rec-res-explain/" method=post>
+            {% csrf_token %}
+            <div class="iq-card-header d-flex justify-content-between">
+                <div class="iq-header-title">
+                    <h4 class="card-title">User Insight Table</h4>
+                </div>
+                {% comment %} <a href="2rec-res-explain.html"> {% endcomment %}
+                    <button type="submit" class="btn dark-icon btn-primary mb-3">Recommend Again</button>
+                {% comment %} </a> {% endcomment %}
+            </div>
+            <div class="iq-card-body">
+                <p class="card-text">This table shows your vocal scores used to recommend songs. Change any
+                    score, hit "Recommend Again," we'll provide a new top 10 song, and explain how to reach
+                    your desired score. </p>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                {% for txt in table_head %}
+                                    <th scope="col" class="text-center">{{txt}}</th>
+                                {% endfor %}
+                                <!-- <th scope="col" class="text-right">Amount</th>
+                                                    <th scope="col" class="text-center">Status</th>
+                                                    <th scope="col">Action</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    <div class="user-img img-fluid">
+                                        <img src={% static "images/user/1.jpg" %} alt="story-img"
+                                            class="img-fluid rounded-circle avatar-40">
+                                    </div>
+                                    User's
+                                </td>
+                                {% for key, num in table_content %}
+                                    <td><input name={{key}} type="number" min="0" max="1" step="0.01" value={{num}}></input>
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </form>
+        </div>
+        <!-- User insight table + editable -->
+        <!-- recommend again button  -->
+        <!-- Expalinable คำอธิบายว่า ทำยังไงให้ได้ -->
+        <div class="iq-card">
+            <div class="iq-card-header d-flex justify-content-between">
+                <div class="iq-header-title">
+                    <h4 class="card-title">Recommendation Results</h4>
+                </div>
+            </div>
+            <div class="iq-card-body">
+                <!-- <p>รายละเอียดคร่าว ๆ ยังไม่รู้จะใส่อะไร</p> -->
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="nav flex-column nav-pills text-center" id="v-pills-tab" role="tablist"
+                        aria-orientation="vertical">
+                            <a class="nav-link active" id="v-{{result_key|hash:5}}-tab" data-toggle="pill" href="#{{ result_key|hash:5 }}"
+                                role="tab" aria-controls="{{result_key|hash:5}}" aria-selected="true">
+                                <div class="d-flex align-items-center">
+                                    {% comment %} <div class="user-img img-fluid">
+                                        <img src="images/song/วังวน.jpeg" alt="story-img"
+                                            class="img-fluid rounded-circle avatar-40">
+                                    </div> {% endcomment %}
+                                    <div class="media-support-info ml-3">
+                                        <h6 class="text-primary">{{ result_key }}</h6>
+                                    </div>
+                                    <div class="iq-card-header-toolbar">
+                                        <h6 class="text-dark">{{ result_val|round:1 }}</h6>
+                                        <div class="iq-progress-bar">
+                                            <span class="bg-success" data-percent="89.5"
+                                                style="transition: width 2s ease 0s; width: 0%;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            {% for key, val in result %}
+                            <a class="nav-link" id="v-{{key|hash:5}}-tab" data-toggle="pill" href="#{{ key|hash:5 }}"
+                                role="tab" aria-controls="{{key|hash:5}}" aria-selected="true">
+                                <div class="d-flex align-items-center">
+                                    {% comment %} <div class="user-img img-fluid">
+                                        <img src="images/song/วังวน.jpeg" alt="story-img"
+                                            class="img-fluid rounded-circle avatar-40">
+                                    </div> {% endcomment %}
+                                    <div class="media-support-info ml-3">
+                                        <h6 class="text-primary">{{ key }}</h6>
+                                    </div>
+                                    <div class="iq-card-header-toolbar">
+                                        <h6 class="text-dark">{{ val|round:1 }}</h6>
+                                        <div class="iq-progress-bar">
+                                            <span class="bg-success" data-percent="89.5"
+                                                style="transition: width 2s ease 0s; width: 0%;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="{{result_key|hash:5}}" role="tabpanel"
+                                aria-labelledby="{{result_key|hash:5}}">
+                                <h4 class="text-primary">{{result_key}}</h4>
+                                <p>Get a sneak peek at your perfect match! This visualization highlights your top
+                                    song with just overview information, but dive into the "Full Recommendation
+                                    Results Table" for the complete picture. </p>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h6 class="title text-dark">Overall Score</h6>
+                                            <div class="percentage float-right text-primary">{{result_val|round:1}}
+                                                <span>%</span></div>
+                                        </div>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar">
+                                                <span class="bg-primary" data-percent="{{result_val}}"
+                                                    style="transition: width 2s ease 0s; width: 0%;"></span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h6 class="title text-dark">Max Score</h6>
+                                            <div class="percentage float-right text-primary">{{result_max|round:2}}
+                                            </div>
+                                        </div>
+                                        <p>Range between 0.5-1.0</p>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar">
+                                                <span class="bg-primary" data-percent="{{result_max|time:100}}"
+                                                    style="transition: width 2s ease 0s; width: 0%;"></span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h6 class="title text-dark">Average Great Note Score</h6>
+                                            <div class="percentage float-right text-primary">{{result_avg_great|round:2}}
+                                            </div>
+                                        </div>
+                                        <p>Range between 0.5-1.0</p>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar">
+                                                <span class="bg-primary" data-percent="{{result_avg_great|time:100}}"
+                                                    style="transition: width 2s ease 0s; width: 0%;"></span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h6 class="title text-dark">Average Medium Note Score</h6>
+                                            <div class="percentage float-right text-primary">{{result_avg_med|round:2}}
+                                            </div>
+                                        </div>
+                                        <p>Range between 0.5-1.0</p>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar">
+                                                <span class="bg-primary" data-percent="{{result_avg_med|time:100}}"
+                                                    style="transition: width 2s ease 0s; width: 0%;"></span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h6 class="title text-dark">Average Need Improvement Note Score</h6>
+                                            <div class="percentage float-right text-primary">{{result_avg_bad|round:2}}
+                                            </div>
+                                        </div>
+                                        <p>Range between 0.5-1.0</p>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar">
+                                                <span class="bg-primary" data-percent="{{result_avg_bad|time:100}}"
+                                                    style="transition: width 2s ease 0s; width: 0%;"></span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h6 class="title text-dark">Min Score</h6>
+                                            <div class="percentage float-right text-primary">{{result_min|round:2}}
+                                            </div>
+                                        </div>
+                                        <p>Range between 0.5-1.0</p>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar">
+                                                <span class="bg-primary" data-percent="{{result_min|time:100}}"
+                                                style="transition: width 2s ease 0s; width: 0%;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <h5 class="text-primary">User Vocal Performance Breakdown</h5>
+                                        <p>This visual breakdown compares your vocal accuracy to the
+                                            original artist, highlighting areas of strength (great notes),
+                                            areas for improvement (medium notes), and potential pitch
+                                            discrepancies (need improvement notes). </p>
+                                        <div id="donut-chart-{{result_key|hash:5}}"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="../table-res/">
+                                        <button type="button"
+                                            class="btn dark-icon btn-primary btn-block">View
+                                            Full Recommendation Results Table</button>
+                                    </a>
+                                </div>
+                            </div>
+                            {% for key, val, max, min, avg_great, avg_med, avg_bad in result_full %}
+                            <div class="tab-pane fade" id="{{key|hash:5}}" role="tabpanel"
+                                aria-labelledby="{{key|hash:5}}">
+                                <h4 class="text-primary">{{key}}</h4>
+                                <p>Get a sneak peek at your perfect match! This visualization highlights your top
+                                    song with just overview information, but dive into the "Full Recommendation
+                                    Results Table" for the complete picture. </p>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h6 class="title text-dark">Overall Score</h6>
+                                            <div class="percentage float-right text-primary">{{val|round:1}}
+                                                <span>%</span></div>
+                                        </div>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar">
+                                                <span class="bg-primary" data-percent="{{val}}"
+                                                    style="transition: width 2s ease 0s; width: 0%;"></span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h6 class="title text-dark">Max Score</h6>
+                                            <div class="percentage float-right text-primary">{{max|round:2}}
+                                            </div>
+                                        </div>
+                                        <p>Range between 0.5-1.0</p>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar">
+                                                <span class="bg-primary" data-percent={{max|time:100}}
+                                                    style="transition: width 2s ease 0s; width: 0%;"></span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h6 class="title text-dark">Average Great Note Score</h6>
+                                            <div class="percentage float-right text-primary">{{avg_great|round:2}}
+                                            </div>
+                                        </div>
+                                        <p>Range between 0.5-1.0</p>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar">
+                                                <span class="bg-primary" data-percent={{avg_great|time:100}}
+                                                    style="transition: width 2s ease 0s; width: 0%;"></span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h6 class="title text-dark">Average Medium Note Score</h6>
+                                            <div class="percentage float-right text-primary">{{avg_med|round:2}}
+                                            </div>
+                                        </div>
+                                        <p>Range between 0.5-1.0</p>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar">
+                                                <span class="bg-primary" data-percent={{avg_med|time:100}}
+                                                    style="transition: width 2s ease 0s; width: 0%;"></span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h6 class="title text-dark">Average Need Improvement Note Score</h6>
+                                            <div class="percentage float-right text-primary">{{avg_bad|round:2}}
+                                            </div>
+                                        </div>
+                                        <p>Range between 0.5-1.0</p>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar">
+                                                <span class="bg-primary" data-percent={{avg_bad|time:100}}
+                                                    style="transition: width 2s ease 0s; width: 0%;"></span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h6 class="title text-dark">Min Score</h6>
+                                            <div class="percentage float-right text-primary">{{min|round:2}}
+                                            </div>
+                                        </div>
+                                        <p>Range between 0.5-1.0</p>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar">
+                                                <span class="bg-primary" data-percent={{min|time:100}}
+                                                style="transition: width 2s ease 0s; width: 0%;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <h5 class="text-primary">User Vocal Performance Breakdown</h5>
+                                        <p>This visual breakdown compares your vocal accuracy to the
+                                            original artist, highlighting areas of strength (great notes),
+                                            areas for improvement (medium notes), and potential pitch
+                                            discrepancies (need improvement notes). </p>
+                                        <div id="donut-chart-{{key|hash:5}}"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="../table-res/">
+                                        <button type="button"
+                                            class="btn dark-icon btn-primary btn-block">View
+                                            Full Recommendation Results Table</button>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% comment %} <script>
+                            {% for key, len_great, len_med, len_bad in result_len %}
+                            var donut_{{key|hash:5}} = new Morris.Donut({
+                                element: "donut-chart-{{key|hash:5}}",
+                                resize: !0,
+                                colors: ["#28a745", "#ffc107", "#dc3545"],
+                                data: [{
+                                    label: "Great Notes",
+                                    value: {{len_great}}
+                                }, {
+                                    label: "Medium Notes",
+                                    value: {{len_med}}
+                                }, {
+                                    label: "Need Improvement Notes",
+                                    value: {{len_bad}}
+                                }],
+                                hideHover: "auto"
+                            });
+                            {% endfor %}
+                            </script> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block custom_script %}
+<script src="../graph.js"></script>
+{% endblock %}

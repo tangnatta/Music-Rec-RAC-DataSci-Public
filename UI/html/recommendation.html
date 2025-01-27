@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Vito - Responsive Bootstrap 4 Admin Dashboard Template</title>
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="images/favicon.ico" />
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- Typography CSS -->
+      <link rel="stylesheet" href="css/typography.css">
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive CSS -->
+      <link rel="stylesheet" href="css/responsive.css">
+   </head>
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+   
+   <body>
+      <!-- loader Start -->
+      <div id="loading">
+         <div id="loading-center">
+         </div>
+      </div>
+      <!-- loader END -->
+      <!-- Wrapper Start -->
+      <div class="wrapper">
+         <!-- Sidebar  -->
+        
+         <!-- TOP Nav Bar -->
+       
+         <!-- TOP Nav Bar END -->
+         <!-- Page Content  -->
+         <div id="content-page" class="content-page">
+            <div class="container-fluid">
+               <div class="row">
+
+                  <div class="col-sm-12 col-lg-12">
+                     <div class="iq-card">
+                        <div class="iq-card-header d-flex justify-content-between">
+                            
+                           <div class="iq-header-title">
+                           
+                              <h4 class="card-title">Recommendation System of Student Adjustment in Online Education</h4>
+                                
+                           </div>
+
+                        </div>
+                        <div class="iq-card-body">
+                         <form id="form-wizard1" class="text-center mt-4">
+                             
+                             <fieldset>
+                                 <div class="form-card text-left">
+                                     <div class="row">
+                                         
+                                         <div class="col-md-12">
+                                             <h4>Personal Information for Prediction Analytics of Adjustment Level</h4>
+                                         </div>
+                                     </div>
+                                     <div class="row">
+                                                <div class="col-md-12">
+                                                      <div class="form-group">
+                                                         <label>1. Gender:</label>
+                                                         <div class="form-check">
+                                                          <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" id="a41" name="in_municipality" class="custom-control-input" value="1">
+                                                            <label class="custom-control-label" for="a41"> Girl</label>
+                                                         </div>
+                                                         <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" id="a42" name="in_municipality" class="custom-control-input" value="2">
+                                                            <label class="custom-control-label" for="a42"> Boy</label>
+                                                         </div>
+                                                         
+                                                         
+                                                         
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                   <div class="col-md-6">
+                                                         <div class="form-group">
+                                                            <label>2. Age: </label>
+                                                            <select class="form-control mb-3" id='a5' onclick="EnableDisableTextBox()">
+                                                               <option selected="">-Select Age Range(Year)-</option>
+                                                               <option value="1">1-5</option>
+                                                               <option value="2">6-10</option>
+                                                               <option value="3">11-15</option>
+                                                               <option value="4">16-20</option>
+                                                               <option value="4">21-25</option>
+                                                               <option value="4">26-30</option>
+                                                               <option value="4">30 Up</option>
+                                                            </select>
+                                                            
+                                                            
+                                                         </div>
+
+                                                   </div>
+                                                   <div class="col-md-6">
+                                                         <div class="form-group">
+                                                            <label>3. Education Institution Level: </label>
+                                                            <select class="form-control mb-3" id='a5' onclick="EnableDisableTextBox()">
+                                                               <option selected="">-Select Education Institution Level-</option>
+                                                               <option value="1">School</option>
+                                                               <option value="2">College</option>
+                                                               <option value="3">University</option>
+                                                               
+                                                            </select>
+                                                            
+                                                            
+                                                         </div>
+
+                                                   </div>
+
+                                                   <div class="col-md-6">
+                                                         <div class="form-group">
+                                                            <label>4. Education Institution Type: </label>
+                                                            <select class="form-control mb-3" id='a5' onclick="EnableDisableTextBox()">
+                                                               <option selected="">-Select Education Institution Type-</option>
+                                                               <option value="1">Non Government Ins</option>
+                                                               <option value="2">Government Ins</option> 
+                                                            </select>
+                                                            
+                                                            
+                                                         </div>
+
+                                                   </div>
+                                               <div class="col-md-12">
+                                                      <div class="form-group">
+                                                         <label>5. Studying as IT student:</label>
+                                                         <div class="form-check">
+                                                          <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" id="a41" name="in_municipality" class="custom-control-input" value="1">
+                                                            <label class="custom-control-label" for="a41"> Yes</label>
+                                                         </div>
+                                                         <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" id="a42" name="in_municipality" class="custom-control-input" value="2">
+                                                            <label class="custom-control-label" for="a42"> No</label>
+                                                         </div>
+                                                         
+                                                         
+                                                         
+                                                      </div>
+                                                   </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                      <div class="form-group">
+                                                         <label>6. Is student location in town:</label>
+                                                         <div class="form-check">
+                                                          <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" id="a41" name="in_municipality" class="custom-control-input" value="1">
+                                                            <label class="custom-control-label" for="a41"> Yes</label>
+                                                         </div>
+                                                         <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" id="a42" name="in_municipality" class="custom-control-input" value="2">
+                                                            <label class="custom-control-label" for="a42"> No</label>
+                                                         </div>
+                                                         
+                                                         
+                                                         
+                                                      </div>
+                                                   </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                      <div class="form-group">
+                                                         <label>7. Level of load shedding:</label>
+                                                         <div class="form-check">
+                                                          <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" id="a41" name="in_municipality" class="custom-control-input" value="1">
+                                                            <label class="custom-control-label" for="a41"> Low</label>
+                                                         </div>
+                                                         <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" id="a42" name="in_municipality" class="custom-control-input" value="2">
+                                                            <label class="custom-control-label" for="a42"> High</label>
+                                                         </div>
+
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                         <div class="form-group">
+                                                            <label>8. Financial condition of family: </label>
+                                                            <select class="form-control mb-3" id='a5' onclick="EnableDisableTextBox()">
+                                                               <option selected="">-Select Financial condition-</option>
+                                                               <option value="1">Poor</option>
+                                                               <option value="2">Mid</option> 
+                                                               <option value="2">Rich</option> 
+                                                            </select>
+                                                            
+                                                            
+                                                         </div>
+
+                                                   </div>
+                                                <div class="col-md-6">
+                                                         <div class="form-group">
+                                                            <label>9. Internet type used mostly in device: </label>
+                                                            <select class="form-control mb-3" id='a5' onclick="EnableDisableTextBox()">
+                                                               <option selected="">-Select Internet type-</option>
+                                                               <option value="1">2G</option>
+                                                               <option value="2">3G</option> 
+                                                               <option value="2">4G</option> 
+                                                            </select>
+                                                            
+                                                            
+                                                         </div>
+
+                                                   </div>
+                                                   <div class="col-md-6">
+                                                         <div class="form-group">
+                                                            <label>10. Device used mostly in class: </label>
+                                                            <select class="form-control mb-3" id='a5' onclick="EnableDisableTextBox()">
+                                                               <option selected="">-Select Device-</option>
+                                                               <option value="1">Tab</option>
+                                                               <option value="2">Mobile</option> 
+                                                               <option value="2">Computer</option> 
+                                                            </select>
+                                                            
+                                                            
+                                                         </div>
+
+                                                   </div>
+                                                   <div class="col-md-6">
+                                                         <div class="form-group">
+                                                            <label>11. Network connectivity type: </label>
+                                                            <select class="form-control mb-3" id='a5' onclick="EnableDisableTextBox()">
+                                                               <option selected="">-Select connectivity type-</option>
+                                                               <option value="1">Mobile Data</option>
+                                                               <option value="2">Wifi</option> 
+                                                               
+                                                            </select>
+                                                            
+                                                            
+                                                         </div>
+
+                                                   </div>
+                                                   <div class="col-md-6">
+                                                         <div class="form-group">
+                                                            <label>12. Daily class duration: </label>
+                                                            <select class="form-control mb-3" id='a5' onclick="EnableDisableTextBox()">
+                                                               <option selected="">-Select class duration(Hr.)-</option>
+                                                               <option value="1">0</option>
+                                                               <option value="2">1-3</option> 
+                                                               <option value="2">3-6</option> 
+                                                               
+                                                            </select>
+                                                            
+                                                            
+                                                         </div>
+
+                                                   </div>
+                                                    
+                                                    <div class="col-md-12">
+                                                      <div class="form-group">
+                                                         <label>13. Institution’s own LMS availability:</label>
+                                                         <div class="form-check">
+                                                          <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" id="a41" name="in_municipality" class="custom-control-input" value="1">
+                                                            <label class="custom-control-label" for="a41"> Yes</label>
+                                                         </div>
+                                                         <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" id="a42" name="in_municipality" class="custom-control-input" value="2">
+                                                            <label class="custom-control-label" for="a42"> No</label>
+                                                         </div>
+                                                         
+                                                         
+                                                         
+                                                      </div>
+                                                   </div>
+                                                </div>  
+                                                   
+                                                 
+
+                                    
+
+                                             
+                                         
+                                    </div>
+                                 </div>
+                               <a id="submit" class="btn btn-outline-success action-button float-right mb-3" >Predict Adjustment Level</a>
+                             </fieldset>
+                             
+                            
+                                     
+                                      
+                             
+                         </form>
+                           </div>
+                        </div>
+                     </div>
+
+               </div>
+            </div>
+         </div>
+      </div>
+           
+      <!-- Wrapper END -->
+      <!-- Footer -->
+      
+     
+      <!-- Footer END -->
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/sweetalert.min.js"></script>
+      <script src="js/main/utils.js"></script>
+      <script src="js/main/prediction.js"></script>
+        <!-- Rtl and Darkmode -->
+        <script src="js/rtl.js"></script>
+        <script src="js/customizer.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <!-- Appear JavaScript -->
+      <script src="js/jquery.appear.js"></script>
+      <!-- Countdown JavaScript -->
+      <script src="js/countdown.min.js"></script>
+      <!-- Counterup JavaScript -->
+      <script src="js/waypoints.min.js"></script>
+      <script src="js/jquery.counterup.min.js"></script>
+      <!-- Wow JavaScript -->
+      <script src="js/wow.min.js"></script>
+      <!-- Apexcharts JavaScript -->
+      <script src="js/apexcharts.js"></script>
+      <!-- Slick JavaScript -->
+      <script src="js/slick.min.js"></script>
+      <!-- Select2 JavaScript -->
+      <script src="js/select2.min.js"></script>
+      <!-- Owl Carousel JavaScript -->
+      <script src="js/owl.carousel.min.js"></script>
+      <!-- Magnific Popup JavaScript -->
+      <script src="js/jquery.magnific-popup.min.js"></script>
+      <!-- Smooth Scrollbar JavaScript -->
+      <script src="js/smooth-scrollbar.js"></script>
+      <!-- lottie JavaScript -->
+      <script src="js/lottie.js"></script>
+      <!-- Chart Custom JavaScript -->
+      <script src="js/chart-custom.js"></script>
+      <!-- Custom JavaScript -->
+      <script src="js/custom.js"></script>
+   </body>
+</html>
