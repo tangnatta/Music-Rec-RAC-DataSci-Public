@@ -33,3 +33,5 @@ The system was tested by our friends and here's the results on the satisfaction 
 | Satisfaction | 8.75 |
 | Understanding | 7.05 |
 
+## Conclusion
+Future work may focus on refining the algorithm and exploring additional features for more vocal styles.
