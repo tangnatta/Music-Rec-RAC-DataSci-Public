@@ -22,7 +22,7 @@ debugpy==1.8.0
 decorator==5.1.1
 demucs @ git+https://github.com/facebookresearch/demucs@0fa7d4511b0fca3f96f59fa37f7dcaed555990d6
 dill==0.3.7
-Django==5.0.3
+Django==5.0.11
 dora-search==0.1.12
 einops==0.7.0
 executing==2.0.1
