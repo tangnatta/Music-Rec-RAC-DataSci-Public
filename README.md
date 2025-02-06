@@ -1,4 +1,4 @@
-# Music-Rec-RAC-DataSci
+# An Explainable Recommender System for Singing-music according to Individual’s Vocal Abilities Using Modified K-Nearest Neighbor
 
 This project is the final project of RAC Data Science Camp (2023) with contributions of [**tangnatta**](https://github.com/tangnatta/) and [**IcyAlmondE**](https://github.com/IcyAlmondE/), published on IEEE Xplore at https://doi.org/10.1109/ICCI60780.2024.10532228.
 
