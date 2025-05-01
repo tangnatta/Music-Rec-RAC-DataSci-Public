@@ -56,7 +56,7 @@ jsonschema-specifications==2023.7.1
 julius==0.2.7
 jupyter_client==8.6.0
 jupyter_core==5.5.0
-keras==2.15.0
+keras==3.9.0
 kiwisolver==1.4.5
 lameenc==1.6.3
 lazy_loader==0.3
